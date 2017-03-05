@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Web Serial</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('input[type=range]').on('input', function () {
+            $.post('/', {
+              r: $('#r').val(),
+              g: $('#g').val(),
+              b: $('#b').val(),
+              y: $('#y').val()})
+        });
+      });
+    </script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: white;
+      }
+
+      input[type=range] {
+        box-sizing: border-box;
+        width: 80%;
+        height: 64px;
+      }
+
+      span {
+        width: 10%;
+        height: 64px;
+        line-height: 64px;
+        display: block;
+        float: left;
+      }
+
+      input[type=range]{
+          -webkit-appearance: none;
+          outline: none;
+      }
+
+      input[type=range]::-webkit-slider-runnable-track {
+          height: 4px;
+          background: black;
+          border: none;
+      }
+
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        border: 4px solid white;
+        background: black;
+        margin-top: -32px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <span>RED:</span><input id="r" type="range" min="0" max="255" value="0"><br>
+    <span>GREEN:</span><input id="g" type="range" min="0" max="255" value="0"><br>
+    <span>BLUE:</span><input id="b" type="range" min="0" max="255" value="0"><br>
+    <span>YELLOW:</span><input id="y" type="range" min="0" max="255" value="0">
+  </body>
+</html>
